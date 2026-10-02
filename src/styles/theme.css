@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-arabic: "Amiri", serif, system-ui;
+  --font-mono: "Roboto Condensed", ui-monospace, SFMono-Regular, monospace;
+  --font-numbers: "Roboto Condensed", sans-serif;
+
+  --color-canvas: #1F1F1F;
+  --color-surface: #181818;
+  --color-surface-elevated: #262626;
+  --color-surface-hover: #303030;
+  --color-silver: #D3D3D3;
+  --color-silver-light: #E5E5E5;
+  --color-silver-muted: #A8A8A8;
+  --color-chalk: #F2F2F2;
+}
+
+:root {
+  color-scheme: dark;
+  --background: #1F1F1F;
+  --foreground: #F2F2F2;
+  --card: #181818;
+  --card-foreground: #F2F2F2;
+  --popover: #181818;
+  --popover-foreground: #F2F2F2;
+  --primary: #F2F2F2;
+  --primary-foreground: #1F1F1F;
+  --muted: #262626;
+  --muted-foreground: #D3D3D3;
+  --border: rgba(211, 211, 211, 0.15);
+  --border-hover: rgba(242, 242, 242, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Roboto Condensed", "Amiri", serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: "Roboto Condensed", "Amiri", serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+.font-mono,
+[dir="ltr"] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background-color: rgba(211, 211, 211, 0.25);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #181818;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 4px;
+  border: 2px solid #181818;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D3D3D3;
+}
+
+/* Glass Panel Utility */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(242, 242, 242, 0.04) 0%, rgba(211, 211, 211, 0.01) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(211, 211, 211, 0.12);
+  box-shadow: inset 0 1px 0 rgba(242, 242, 242, 0.12), 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+}
+
+.glass-panel-interactive {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  border-color: rgba(211, 211, 211, 0.35);
+  box-shadow: inset 0 1px 0 rgba(242, 242, 242, 0.2), 0 20px 40px -10px rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+:focus-visible {
+  outline: 2px solid #D3D3D3;
+  outline-offset: 3px;
+}

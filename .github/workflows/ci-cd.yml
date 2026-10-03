@@ -32,45 +32,23 @@ jobs:
       - name: TypeScript Check & Production Build
         run: npm run build
 
-      - name: Deploy to Server via SSH
+      - name: Deploy to Server via FTPS
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_HOST: ${{ secrets.SSH_HOST || '102.213.180.4' }}
-          SSH_USER: ${{ secrets.SSH_USER || 'almahar5' }}
-          SSH_PORT: ${{ secrets.SSH_PORT || '6934' }}
-        run: |
-          SSH_HOST=$(echo "$SSH_HOST" | tr -d '[:space:]')
-          SSH_USER=$(echo "$SSH_USER" | tr -d '[:space:]')
-          SSH_PORT=$(echo "$SSH_PORT" | tr -d '[:space:]')
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER || '102.213.180.4' }}
+          username: ${{ secrets.FTP_USERNAME || 'almahar5' }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: public_html/
+          local-dir: ./dist/
+          security: loose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/cgi-bin/**
+            **/php.ini
+            **/.user.ini
+            **/.well-known/**
 
-          if [ -z "$SSH_PRIVATE_KEY" ]; then
-            echo "::error::Missing required secret: SSH_PRIVATE_KEY"
-            exit 1
-          fi
-
-          echo "Checking TCP reachability to $SSH_HOST on port $SSH_PORT..."
-          if ! nc -zv -w 10 "$SSH_HOST" "$SSH_PORT"; then
-            echo "::error::Firewall Block: Port $SSH_PORT on $SSH_HOST is not reachable from GitHub Actions."
-            echo "::notice::Your hosting firewall (CSF/cPHulk) is dropping incoming connections from GitHub Actions cloud IPs."
-            exit 1
-          fi
-
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-
-          echo "Streaming dist archive to public_html..."
-          tar -czf - -C dist . | ssh \
-            -o StrictHostKeyChecking=accept-new \
-            -o BatchMode=yes \
-            -o ConnectTimeout=15 \
-            -o ServerAliveInterval=15 \
-            -p "$SSH_PORT" \
-            -i ~/.ssh/deploy_key \
-            "$SSH_USER@$SSH_HOST" \
-            "tar -xzf - -C public_html"
-
-          rm -f ~/.ssh/deploy_key
-          echo "Deployment to public_html completed successfully!"

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Home2, Setting2, CallCalling, Car, Box, ShieldTick } from "iconsax-reactjs";
+import { Home2, Setting2, CallCalling, Car, Box, ShieldTick, Gallery } from "iconsax-reactjs";
 import { cn } from "@/lib/utils";
 import { springPresets } from "@/lib/motion";
 
@@ -22,6 +22,7 @@ export function NavRail({ activeId, onSelect, className }: NavRailProps) {
     { id: "home", label: "الرئيسية", href: "#hero", icon: Home2 },
     { id: "services", label: "الخدمات", href: "#services", icon: Car },
     { id: "logistics", label: "مسار التوريد", href: "#logistics", icon: Box },
+    { id: "gallery", label: "المعرض", href: "#gallery", icon: Gallery },
     { id: "workflow", label: "المعايير", href: "#workflow", icon: ShieldTick },
     { id: "inquiry", label: "طلب استيراد", href: "#inquiry", icon: Setting2 },
     { id: "contact", label: "تواصل معنا", href: "#contact", icon: CallCalling },

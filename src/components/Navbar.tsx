@@ -19,6 +19,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "خدماتنا", href: "#services" },
     { name: "مسار التوريد", href: "#logistics" },
+    { name: "معرض العمليات", href: "#gallery" },
     { name: "كيف نعمل", href: "#workflow" },
     { name: "طلب استيراد", href: "#inquiry" },
     { name: "مقر بنغازي", href: "#contact" },
@@ -76,7 +77,7 @@ export default function Navbar() {
                   className="flex items-center gap-1.5 text-xs font-mono text-[#D3D3D3] hover:text-[#F2F2F2] transition-colors px-3 py-1.5 rounded-lg border border-[#D3D3D3]/20 bg-[#181818] hover:border-[#D3D3D3]/40"
                 >
                   <CallCalling size="14" className="text-[#D3D3D3]" />
-                  <span dir="ltr">092 511 5020</span>
+                  <span dir="ltr">091 511 5020</span>
                   <ArrowDown2 size="10" className="text-[#D3D3D3]/70" />
                 </button>
               }

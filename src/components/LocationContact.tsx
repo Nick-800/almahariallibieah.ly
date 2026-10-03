@@ -6,10 +6,10 @@ import { Popover } from "@/components/ui/Popover";
 import { Location, CallCalling, Sms, Clock, ExportCircle, Messages2, Map1 } from "iconsax-reactjs";
 
 export const companyPhoneNumbers = [
-  { formatted: "092 511 5020", raw: "+218925115020", operator: "المدار" },
-  { formatted: "091 511 5020", raw: "+218915115020", operator: "ليبيانا" },
-  { formatted: "092 510 0220", raw: "+218925100220", operator: "المدار" },
-  { formatted: "091 510 0220", raw: "+218915100220", operator: "ليبيانا" },
+  { formatted: "091 511 5020", raw: "+218915115020", operator: "المدار" },
+  { formatted: "092 511 5020", raw: "+218925115020", operator: "ليبيانا" },
+  { formatted: "091 510 0220", raw: "+218915100220", operator: "المدار" },
+  { formatted: "092 510 0220", raw: "+218925100220", operator: "ليبيانا" },
 ];
 
 export default function LocationContact() {

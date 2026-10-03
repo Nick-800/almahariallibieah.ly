@@ -104,15 +104,15 @@ export default function Footer() {
                 <div className="flex flex-col gap-1 font-mono text-xs">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-sans text-[#D3D3D3]/70">المدار:</span>
-                    <a href="tel:+218925115020" className="hover:text-[#F2F2F2] transition-colors" dir="ltr">092 511 5020</a>
-                    <span className="text-[#D3D3D3]/30">·</span>
-                    <a href="tel:+218925100220" className="hover:text-[#F2F2F2] transition-colors" dir="ltr">092 510 0220</a>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-sans text-[#D3D3D3]/70">ليبيانا:</span>
                     <a href="tel:+218915115020" className="hover:text-[#F2F2F2] transition-colors" dir="ltr">091 511 5020</a>
                     <span className="text-[#D3D3D3]/30">·</span>
                     <a href="tel:+218915100220" className="hover:text-[#F2F2F2] transition-colors" dir="ltr">091 510 0220</a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-sans text-[#D3D3D3]/70">ليبيانا:</span>
+                    <a href="tel:+218925115020" className="hover:text-[#F2F2F2] transition-colors" dir="ltr">092 511 5020</a>
+                    <span className="text-[#D3D3D3]/30">·</span>
+                    <a href="tel:+218925100220" className="hover:text-[#F2F2F2] transition-colors" dir="ltr">092 510 0220</a>
                   </div>
                 </div>
               </li>

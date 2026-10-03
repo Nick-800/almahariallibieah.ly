@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ServicesBento from "@/components/ServicesBento";
 import LogisticsTimeline from "@/components/LogisticsTimeline";
+import GallerySection from "@/components/GallerySection";
 import WorkflowSection from "@/components/WorkflowSection";
 import InquiryBuilder from "@/components/InquiryBuilder";
 import LocationContact from "@/components/LocationContact";
@@ -16,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "services", "logistics", "workflow", "inquiry", "contact"];
+      const sections = ["home", "services", "logistics", "gallery", "workflow", "inquiry", "contact"];
       const scrollPosition = window.scrollY + 300;
 
       for (const sectionId of sections) {
@@ -44,6 +45,7 @@ export default function App() {
           <Hero />
           <ServicesBento />
           <LogisticsTimeline />
+          <GallerySection />
           <WorkflowSection />
           <InquiryBuilder />
           <LocationContact />
